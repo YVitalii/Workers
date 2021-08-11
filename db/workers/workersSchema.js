@@ -8,7 +8,7 @@ let gTrace=0; //=1 глобальная трассировка (трассиру
 //const workersShema = require('./workersShema.js');
 //mongodb://express:Danya@localhost:27017/lazer?authSource=WorkersDB&readPreference=primary&appname=Express&ssl=false
 const EventShema = new Schema ({
-  token:{
+  token:{ // id сообщения на сервере 
     type:Number,
     required:true,
   },
@@ -105,6 +105,5 @@ WorkerSchema.statics.findByCard = async function (card) {
   if (data) {return data._doc}; // если есть данные, возвращаем их
   return null // или возвращаем null
 } //findByCard
-
 
 module.exports=WorkerSchema;
