@@ -8,7 +8,7 @@ let gTrace=0; //=1 глобальная трассировка (трассиру
 //const workersShema = require('./workersShema.js');
 //mongodb://express:Danya@localhost:27017/lazer?authSource=WorkersDB&readPreference=primary&appname=Express&ssl=false
 const EventShema = new Schema ({
-  token:{ // id сообщения на сервере 
+  token:{ // id сообщения на сервере
     type:Number,
     required:true,
   },
@@ -50,7 +50,9 @@ var WorkerSchema= new Schema({
         date: Date, // время
         direction: Number // направление
       },
-      monthEventList: [EventShema]
+      dayEventList: [EventShema], //список событий за день
+      monthEventList: [EventShema], //список событий за посл.месяц.
+      err:[ String ]
     },
     telegram: { // настройки чата Telegram
       chatId: {
